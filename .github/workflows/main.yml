@@ -11,7 +11,15 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      USERNAME:  ${{ secrets.DOCKERHUB_USERNAME }}
+      PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
+      - run: echo "Hello from workflow!"
+      - run: echo "$USERNAME"
+      - run: echo "$PASSWORD"
+      - run: echo MOOSE "${{ secrets.DOCKERHUB_USERNAME }}"
+      - run: echo COW "${{ secrets.DOCKERHUB_TOKEN }}"
       -
         name: Checkout
         uses: actions/checkout@v3
