@@ -16,10 +16,8 @@ jobs:
       PASSWORD: ${{ secrets.DOCKERHUB_TOKEN }}
     steps:
       - run: echo "Hello from workflow!"
-      - run: echo "$USERNAME"
-      - run: echo "$PASSWORD"
-      - run: echo MOOSE "${{ secrets.DOCKERHUB_USERNAME }}"
-      - run: echo COW "${{ secrets.DOCKERHUB_TOKEN }}"
+      - run: echo "USERNAME $USERNAME"
+      - run: echo "PASSWORD $PASSWORD"
       -
         name: Checkout
         uses: actions/checkout@v3
@@ -41,4 +39,5 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          #tags: ${{ secrets.DOCKERHUB_USERNAME }}/clockbox:latest
+          tags: paulsm4/clockbox:latest
